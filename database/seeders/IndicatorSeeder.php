@@ -43,12 +43,12 @@ class IndicatorSeeder extends Seeder
             ];
 
             foreach ($data as $item){
-                Indicator::create([
-                    'name' => $item['name'],
-                    'type' => $item['type'],
-                    'value' => $item['value'],
-                    'measured_at' => $item['measured_at']
-                 ]);
-                }
+            \App\Models\Indicator::create([
+                'name' => $item['name'],
+                'type' => $item['type'],
+                'value' => $item['value'],
+                'measured_at' => $item['measured_at'],
+            ]);
+        }
             }
     }
