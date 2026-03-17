@@ -7,15 +7,16 @@ use App\Models\Indicator;
 
 class DashboardAnalisis extends Component
 {
-    public $indicators;
-
-    public function mount()
-    {
-        $this->indicators = Indicator::all();
-    }
+    public $indicadorSeleccionado = 'Huella de Carbono';
 
     public function render()
     {
-        return view('livewire.dashboard-analisis');
+        $datos = Indicator::where('name', $this->indicadorSeleccionado)
+                          ->orderBy('measured_at', 'asc')
+                          ->get();
+
+        return view('livewire.dashboard-analisis', [
+            'datos' => $datos
+        ]);
     }
 }
