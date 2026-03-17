@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/analisis', function () {
+    return view('analisis'); // Llamamos a una vista normal de Blade
 });
